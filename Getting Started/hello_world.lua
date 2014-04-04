@@ -5,7 +5,7 @@
      debug message with anything that is written to that dataport.
   ]]
 
-local dataport = alias['Test']
+local dataport = alias['test_datasource']
 
 while true do
 	-- This function waits until a new value is written to the dataport
