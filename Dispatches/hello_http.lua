@@ -1,19 +1,19 @@
 -- This script simply waits until a new value gets written to a 
--- datasource, then pushes that value to the specified url.
+-- dataport, then pushes that value to the specified url.
 
 --------------- Configure These Variables ---------------------
-local datasource_alias = 'device_message'
+local dataport_alias = 'device_message'
 local url = 'http://198.46.157.16:13579'
 ---------------------------------------------------------------
 
-local datasource = alias[datasource_alias]
+local dataport = alias[dataport_alias]
 
-while datasource ~= nil do
-  local new_timestamp = datasource.wait()
+while dataport ~= nil do
+  local new_timestamp = dataport.wait()
   
   if new_timestamp ~= nil then
-    local new_value = datasource[new_timestamp]
-    local body = string.format('%s=%s', datasource_alias, new_value)
+    local new_value = dataport[new_timestamp]
+    local body = string.format('%s=%s', dataport_alias, new_value)
     debug(string.format('Sending Message: %s', body, date()))
     dispatch.http(url,
                   "post",
@@ -25,4 +25,4 @@ while datasource ~= nil do
   end
 end
 
-debug("Reached End of Program; Are you sure the datasource alias exists?")
+debug("Reached End of Program; Are you sure the dataport alias exists?")
