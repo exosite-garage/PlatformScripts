@@ -9,7 +9,7 @@ local user_number = '+1xxxyyyzzzz' -- be sure to use correct country code
 debug("The script has been started.")
 
 while true do
-  local ts = datasource_alias.wait()
-  sms(usernumber, 'Dataport Value: '..tostring(datasource_alias[ts]))
-  debug("Triggered: "..datasource_alias[ts])
+  local ts = dataport_alias.wait()
+  sms(usernumber, 'Dataport Value: '..tostring(dataport_alias[ts]))
+  debug("Triggered: "..dataport_alias[ts])
 end
