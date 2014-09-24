@@ -1,16 +1,15 @@
--- This script will send every new value from the datasource of
+-- This script will send every new value from the dataport of
 -- your choice over an email message.
 
 --------------- Configure These Variables ---------------------
-local datasource_alias = 'my_datasource'
-local email_recipient = 'user@example.com'
+local dataport_alias = 'my_datasource' -- dataport to monitor
+local email_recipient = 'user@example.com' -- user email address
 ---------------------------------------------------------------
 
-headline(xmpp_user, "Started", "The script has been started.")
 debug("Started")
 
 while true do
-  valueToReport.wait()
-  email(email_recipient, "New Data", valueToReport.value)
-  debug("Triggered: "..valueToReport.value)
+  local timetsamp = dataport_alias.wait()
+  email(email_recipient, "New Data", dataport_alias[timetsamp])
+  debug("Triggered: "..dataport_alias[timetsamp])
 end
