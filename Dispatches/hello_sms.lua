@@ -1,16 +1,15 @@
--- This script will send every new value from the datasource of
+-- This script will send every new value from the dataport of
 -- your choice over an SMS text message.
 
 --------------- Configure These Variables ---------------------
-local datasource_alias = 'my_datasource'
-local user_number = '8675309'
+local dataport_alias = 'my_dataport' -- the dataport to monitor
+local user_number = '+1xxxyyyzzzz' -- be sure to use correct country code
 ---------------------------------------------------------------
 
-headline(xmpp_user, "Started", "The script has been started.")
-debug("Started")
+debug("The script has been started.")
 
 while true do
-  valueToReport.wait()
-  sms(usernumber, valueToReport.value)
-  debug("Triggered: "..valueToReport.value)
+  local ts = datasource_alias.wait()
+  sms(usernumber, 'Dataport Value: '..tostring(datasource_alias[ts]))
+  debug("Triggered: "..datasource_alias[ts])
 end
