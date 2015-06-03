@@ -20,7 +20,8 @@ local function reenable(vendor,model,sn)
   local content_type = "application/x-www-form-urlencoded; charset=utf-8"
   local headers = {
         ['User-Agent']="onep script",
-        ['X-Exosite-Token']=VENDOR_TOKEN
+        ['X-Exosite-Token']=VENDOR_TOKEN,
+        ['X-Exosite-Vendor']=vendor
       }
   local status,resp=dispatch.http(url, "post", body, content_type,headers)
 
