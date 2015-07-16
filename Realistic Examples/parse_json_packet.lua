@@ -14,7 +14,7 @@ setlocale(mylocale)
 while true do
   local ts1 = packet.wait()
   local packetval = packet[ts1]
-  headline('FILLINXMPPADDRESS',"Packet",string.format(packetval))
+  debug(string.format(packetval))
   local data = json.decode(packetval)
   if data then
     if data.analogTemp then
