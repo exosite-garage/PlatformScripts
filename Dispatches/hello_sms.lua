@@ -10,6 +10,6 @@ debug("The script has been started.")
 
 while true do
   local ts = dataport_alias.wait()
-  sms(usernumber, 'Dataport Value: '..tostring(dataport_alias[ts]))
-  debug("Triggered: "..dataport_alias[ts])
+  dispatch.sms(user_number, 'Dataport Value: '..tostring(dataport_alias[ts]))
+  debug("Triggered: "..tostring(dataport_alias[ts]))
 end

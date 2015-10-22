@@ -10,6 +10,6 @@ debug("Started")
 
 while true do
   local timetsamp = dataport_alias.wait()
-  email(email_recipient, "New Data", dataport_alias[timetsamp])
+  dispatch.email(email_recipient, "New Data", dataport_alias[timetsamp])
   debug("Triggered: "..dataport_alias[timetsamp])
 end

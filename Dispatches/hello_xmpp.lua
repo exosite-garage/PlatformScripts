@@ -11,7 +11,7 @@ debug("Started")
 
 while true do
   valueToReport.wait()
-  headline(xmpp_user,
+  dispatch.headline(xmpp_user,
            "New Data",
            "New Data: "..valueToReport.value
            )
