@@ -18,8 +18,8 @@ debug("Script Started")
 dispatch.tweet(tweetauth, "Script Started at "..date("%c", now))
 
 while true do 
-  my_data.wait()
-  message = my_data.name..': '..my_data.value..' at '..date("%c", my_data.timestamp) 
+  datasource.wait()
+  message = datasource.name..': '..datasource.value..' at '..date("%c", datasource.timestamp) 
   -- Timestamp is added to prevent twitter from filtering "duplicate" tweets.
   dispatch.tweet(tweetauth, message)
   debug(message)
